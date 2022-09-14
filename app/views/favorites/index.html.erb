@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>お気に入り一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>word</th>
+      <th>user</th>
+      <th colspan="0"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= image_tag favorite.image.url , size: "50x50" %></td>
+        <td><%= favorite.content %></td>
+        <td><%= favorite.user.name %></td>
+        <td><%= link_to 'Show', favorite %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<%= link_to 'Back', feeds_path %> |
+<%= link_to 'New Feed', new_feed_path %>
