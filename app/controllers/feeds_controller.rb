@@ -33,9 +33,10 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to feed_url(@feed), notice: "Feed was successfully created." }
-        format.json { render :show, status: :created, location: @feed }
         ContactMailer.send_mail(@feed).deliver
+        format.html { redirect_to feed_url(@feed) , notice: "Feed was successfully created."}
+        format.json { render :show, status: :created, location: @feed }
+
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @feed.errors, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class FeedsController < ApplicationController
     end
 
     def feed_params
-      params.require(:feed).permit(:content, :image, :image_cache)
+      params.require(:feed).permit(:content, :image, :image_cache, :send_mail)
     end
 end
