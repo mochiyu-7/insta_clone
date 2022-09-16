@@ -22,9 +22,9 @@ class FeedsController < ApplicationController
   end
 
   def edit
-    if current_user.email == @feed.user.email
-    else
+    unless current_user.email == @feed.user.email
       redirect_to feeds_path
+            flash[:notice] = '他のユーザーの投稿を編集することはできません。'
     end
   end
 

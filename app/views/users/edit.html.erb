@@ -1,5 +1,5 @@
 <h1>ユーザー情報編集</h1>
-<%= form_with(model: @user, local: true) do |f| %>
+  <%= form_with(model: @user, local: true) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
@@ -10,16 +10,15 @@
       </ul>
     </div>
   <% end %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :email %>
   <%= f.email_field :email %>
-
   <%= f.label :picture %>
   <%= image_tag(@user.picture.url) if @user.picture && @user.picture.url %>
   <%= f.file_field :picture %>
   <%= f.hidden_field :picture_cache %>
-
   <%= f.label :password %>
   <%= f.password_field :password %>
   <%= f.label :password_confirmation %>
@@ -27,4 +26,4 @@
   <div class="submit_record">
     <p><%= f.submit "内容変更" %></p>
   </div>
-<% end %>
+  <% end %>

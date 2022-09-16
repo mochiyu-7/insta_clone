@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
     redirect_to feeds_path, notice: "#{favorite.feed.user.name}さんの画像をお気に入り解除しました"
   end
 
-    def index
-        @favorites = current_user.favorite_feeds.all
-    end
+  def index
+      @favorites = current_user.favorite_feeds.all
+  end
 end

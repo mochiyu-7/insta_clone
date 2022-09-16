@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(feed.image.url) if feed.image && feed.image.url %>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
+    <div class="field">
+      <%= form.label :image %>
+      <%= image_tag(feed.image.url) if feed.image && feed.image.url %>
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
 
-  <div class="content_word">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+    <div class="content_word">
+      <%= form.label :content %>
+      <%= form.text_field :content %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
 <% end %>
